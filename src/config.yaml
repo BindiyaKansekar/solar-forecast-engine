@@ -1,0 +1,51 @@
+# config.yaml
+# ===========
+# Configuration for the Solar Forecast Engine.
+
+sites:
+  - site_id: "site-london-rooftop"
+    name: "London Rooftop Array"
+    latitude: 51.5074
+    longitude: -0.1278
+    capacity_kwp: 50.0
+    panel_efficiency: 0.21
+    tilt_deg: 35.0
+    azimuth_deg: 180.0
+    system_loss_factor: 0.82
+
+  - site_id: "site-birmingham-commercial"
+    name: "Birmingham Commercial Park"
+    latitude: 52.4862
+    longitude: -1.8904
+    capacity_kwp: 200.0
+    panel_efficiency: 0.20
+    tilt_deg: 30.0
+    azimuth_deg: 175.0
+    system_loss_factor: 0.80
+
+  - site_id: "site-edinburgh-utility"
+    name: "Edinburgh Utility Farm"
+    latitude: 55.9533
+    longitude: -3.1883
+    capacity_kwp: 1000.0
+    panel_efficiency: 0.19
+    tilt_deg: 25.0
+    azimuth_deg: 180.0
+    system_loss_factor: 0.78
+
+weather:
+  provider: open_meteo    # Options: open_meteo | custom
+  # custom provider settings (ignored when provider = open_meteo)
+  custom_api_url: "${WEATHER_API_URL}"
+  custom_api_key: "${WEATHER_API_KEY}"
+
+forecast:
+  default_horizon: hourly_24h    # Options: hourly_24h | daily_7d | daily_14d
+  output_dir: output/forecasts
+  export_formats:
+    - json
+    - csv
+
+logging:
+  level: INFO
+  log_dir: logs
