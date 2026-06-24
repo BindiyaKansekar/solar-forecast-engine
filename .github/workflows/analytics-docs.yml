@@ -64,6 +64,7 @@ jobs:
               --path . \
               --output "pr-${PR}-docs.md" \
               --also-html "pr-${PR}-docs.html" \
+              --also-docx "pr-${PR}-docs.docx" \
               --title "Full Repository — Solar Forecast Engine"
           else
             analytics-doc scan-pr \
@@ -71,7 +72,8 @@ jobs:
               --repo "${{ github.repository }}" \
               --pr "${PR}" \
               --output "pr-${PR}-docs.md" \
-              --also-html "pr-${PR}-docs.html"
+              --also-html "pr-${PR}-docs.html" \
+              --also-docx "pr-${PR}-docs.docx"
           fi
 
       - name: Upload docs artifact
