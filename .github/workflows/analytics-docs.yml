@@ -29,6 +29,7 @@ jobs:
     permissions:
       pull-requests: write
       contents: write
+      pages: write
 
     steps:
       - name: Set up engine + Claude auth
